@@ -1,19 +1,14 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <div>hoge</div>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
 import "normalize.css";
 
 export default {
   name: "App",
-  components: {
-    HelloWorld,
-  },
 };
 </script>
 
