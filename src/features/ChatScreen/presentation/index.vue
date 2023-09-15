@@ -1,13 +1,18 @@
 <template>
-  <OpponentChatPresentation text="Hello" time="12:00" />
+  <div>
+    <OpponentChatPresentation text="Hello" time="12:00" />
+    <MyChatPresentation text="Hi" time="12:01" />
+  </div>
 </template>
 
 <script>
 import OpponentChatPresentation from "./OpponentChat/index.vue";
+import MyChatPresentation from "./MyChat/index.vue";
+
 export default {
   name: "ChatScreenPresentation",
   props: {},
-  components: { OpponentChatPresentation },
+  components: { OpponentChatPresentation, MyChatPresentation },
 };
 </script>
 
