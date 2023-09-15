@@ -1,3 +1,4 @@
+body, /* for storybook */
 #app {
   font-family: Avenir Hiragino-kaku-gothic-proN, sans-serif;
   color: var(--text);
