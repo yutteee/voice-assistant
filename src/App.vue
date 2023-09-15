@@ -1,28 +1,69 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from "./components/HelloWorld.vue";
+import "normalize.css";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    HelloWorld,
+  },
+};
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  font-family: Avenir Hiragino-kaku-gothic-proN, sans-serif;
+  color: var(--text);
+  background-color: var(--background);
+  font-size: 16px;
+  min-height: 100vh;
+  width: 100%;
+}
+
+:root {
+  --primary: #5cdce6;
+  --background: #e7fafb;
+  --link: #4ab0b8;
+  --white: #ffffff;
+  --error: #f13d3d;
+  --border: #b3bdbe;
+  --text: #354041;
+  --sub-text: #929898;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+a {
+  color: var(--link);
+}
+
+span .detail1 {
+  font-size: 14px;
+  color: var(--sub-text);
+}
+
+span .detail2 {
+  font-size: 12px;
+  color: var(--sub-text);
 }
 </style>
