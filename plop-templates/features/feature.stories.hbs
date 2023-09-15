@@ -1,0 +1,17 @@
+import {{pascalCase feature}}Presentation from './presentation/index.vue'
+
+export default {
+  title: 'features/{{pascalCase feature}}',
+  component: {{pascalCase feature}}Presentation,
+  tags: ['autodocs'],
+  render: (args, { argTypes }) => ({
+    props: Object.keys(argTypes),
+    components: { {{pascalCase feature}}Presentation },
+    template: '<{{kebabCase feature}}Presentation />',
+  }),
+  argTypes: {},
+};
+
+export const Default = {
+  args: {},
+};
