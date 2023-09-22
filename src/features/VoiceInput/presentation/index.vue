@@ -10,20 +10,26 @@
       @stopVoiceInput="$emit('stopVoiceInput')"
       @sendVoiceInput="$emit('sendVoiceInput')"
     />
-    <div v-if="screenStatus === 'end'">end</div>
+    <PreviewVoiceInput
+      v-if="screenStatus === 'end'"
+      @deleteVoiceInput="$emit('deleteVoiceInput')"
+      @playVoiceInput="$emit('playVoiceInput')"
+      @sendVoiceInput="$emit('sendVoiceInput')"
+    />
   </div>
 </template>
 
 <script>
 import VoiceInputStartPresentation from "./VoiceInputStart/index.vue";
 import DuringVoiceInput from "./DuringVoiceInput/index.vue";
+import PreviewVoiceInput from "./PreviewVoiceInput/index.vue";
 
 export default {
   name: "VoiceInputPresentation",
   props: {
     screenStatus: String, // "start" | "during" | "end"
   },
-  components: { VoiceInputStartPresentation, DuringVoiceInput },
+  components: { VoiceInputStartPresentation, DuringVoiceInput, PreviewVoiceInput },
 };
 </script>
 

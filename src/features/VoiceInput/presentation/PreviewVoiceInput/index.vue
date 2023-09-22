@@ -3,8 +3,8 @@
     <span class="detail1">~~~~~~~</span>
     <div class="buttons">
       <DeleteButton @deleteVoiceInput="$emit('deleteVoiceInput')" />
-      <button class="stop-button" @click="$emit('stopVoiceInput')">
-        <Icon icon="material-symbols:stop" class="icon" />
+      <button class="play-button" @click="$emit('playVoiceInput')">
+        <Icon icon="mdi:play" class="icon" />
       </button>
       <SendButton @sendVoiceInput="$emit('sendVoiceInput')" />
     </div>
@@ -15,10 +15,15 @@
 import { Icon } from "@iconify/vue2";
 import DeleteButton from "../buttons/DeleteButton/index.vue";
 import SendButton from "../buttons/SendButton/index.vue";
+
 export default {
-  name: "DuringVoiceInput",
+  name: "PreviewVoiceInput",
   props: {},
-  components: { Icon, DeleteButton, SendButton },
+  components: {
+    Icon,
+    DeleteButton,
+    SendButton,
+  },
 };
 </script>
 
@@ -37,7 +42,7 @@ export default {
   align-items: center;
 }
 
-.stop-button {
+.play-button {
   color: var(--primary);
   background-color: var(--white);
   border: solid 1px var(--primary);
