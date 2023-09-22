@@ -1,5 +1,8 @@
 <template>
-  <VoiceInputPresentation />
+  <VoiceInputPresentation
+    @startVoiceInput="startVoiceInput"
+    v-bind:isDuringVoiceInput="isDuringVoiceInput"
+  />
 </template>
 
 <script>
@@ -9,6 +12,18 @@ export default {
   name: "VoiceInput",
   props: {},
   components: { VoiceInputPresentation },
+
+  data() {
+    return {
+      isDuringVoiceInput: false,
+    };
+  },
+
+  methods: {
+    startVoiceInput() {
+      this.isDuringVoiceInput = true;
+    },
+  },
 };
 </script>
 

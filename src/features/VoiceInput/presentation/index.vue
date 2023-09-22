@@ -1,7 +1,10 @@
 <template>
   <div>
-    <VoiceInputStartPresentation />
-    <DuringVoiceInput />
+    <VoiceInputStartPresentation
+      v-if="!isDuringVoiceInput"
+      @startVoiceInput="$emit('startVoiceInput')"
+    />
+    <DuringVoiceInput v-if="isDuringVoiceInput" />
   </div>
 </template>
 
@@ -11,7 +14,9 @@ import DuringVoiceInput from "./DuringVoiceInput/index.vue";
 
 export default {
   name: "VoiceInputPresentation",
-  props: {},
+  props: {
+    isDuringVoiceInput: Boolean,
+  },
   components: { VoiceInputStartPresentation, DuringVoiceInput },
 };
 </script>

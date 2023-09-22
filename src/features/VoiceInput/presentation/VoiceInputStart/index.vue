@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <span class="detail1">Tap the button to record.</span>
-    <button class="button">
+    <button class="button" @click="$emit('startVoiceInput')">
       <Icon icon="material-symbols:mic" class="icon" />
     </button>
   </div>
