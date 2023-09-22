@@ -33,7 +33,7 @@ export default { name: "VoiceInputStartPresentation", props: {}, components: { I
   transition: background-color 0.3s ease;
   &:hover {
     cursor: pointer;
-    background-color: #1ee7f6;
+    background-color: var(--primary-hover);
   }
 }
 
