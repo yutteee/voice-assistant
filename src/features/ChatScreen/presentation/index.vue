@@ -1,7 +1,7 @@
 <template>
   <div>
-    <OpponentChatPresentation text="Hello" time="12:00" />
-    <MyChatPresentation text="Hi" time="12:01" />
+    <opponent-chat-presentation text="Hello" time="12:00" />
+    <my-chat-presentation text="Hi" time="12:01" />
   </div>
 </template>
 
