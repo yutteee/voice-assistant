@@ -1,7 +1,10 @@
 <template>
   <VoiceInputPresentation
+    v-bind:screenStatus="screenStatus"
     @startVoiceInput="startVoiceInput"
-    v-bind:isDuringVoiceInput="isDuringVoiceInput"
+    @deleteVoiceInput="deleteVoiceInput"
+    @stopVoiceInput="stopVoiceInput"
+    @sendVoiceInput="sendVoiceInput"
   />
 </template>
 
@@ -15,13 +18,22 @@ export default {
 
   data() {
     return {
-      isDuringVoiceInput: false,
+      screenStatus: "start", // "start" | "during" | "end"
     };
   },
 
   methods: {
     startVoiceInput() {
-      this.isDuringVoiceInput = true;
+      this.screenStatus = "during";
+    },
+    deleteVoiceInput() {
+      this.screenStatus = "start";
+    },
+    stopVoiceInput() {
+      this.screenStatus = "end";
+    },
+    sendVoiceInput() {
+      this.screenStatus = "start";
     },
   },
 };

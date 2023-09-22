@@ -2,22 +2,24 @@
   <div class="container">
     <span class="detail1">~~~~~~~</span>
     <div class="buttons">
-      <button class="delete-button">
-        <Icon icon="ph:trash-fill" class="icon" />
-      </button>
-      <button class="stop-button">
+      <DeleteButton @deleteVoiceInput="$emit('deleteVoiceInput')" />
+      <button class="stop-button" @click="$emit('stopVoiceInput')">
         <Icon icon="material-symbols:stop" class="icon" />
       </button>
-      <button class="send-button">
-        <Icon icon="material-symbols:send" class="icon" />
-      </button>
+      <SendButton @sendVoiceInput="$emit('sendVoiceInput')" />
     </div>
   </div>
 </template>
 
 <script>
 import { Icon } from "@iconify/vue2";
-export default { name: "DuringVoiceInput", props: {}, components: { Icon } };
+import DeleteButton from "../buttons/DeleteButton/index.vue";
+import SendButton from "../buttons/SendButton/index.vue";
+export default {
+  name: "DuringVoiceInput",
+  props: {},
+  components: { Icon, DeleteButton, SendButton },
+};
 </script>
 
 <style scoped>

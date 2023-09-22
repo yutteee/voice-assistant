@@ -7,7 +7,7 @@ export default {
   argTypes: {
     isDuringVoiceInput: {
       control: {
-        type: "boolean",
+        type: "String",
       },
     },
   },
@@ -15,12 +15,18 @@ export default {
 
 export const BeforeVoiceInput = {
   args: {
-    isDuringVoiceInput: false,
+    screenStatus: "start",
   },
 };
 
 export const DuringVoiceInput = {
   args: {
-    isDuringVoiceInput: true,
+    screenStatus: "during",
+  },
+};
+
+export const AfterVoiceInput = {
+  args: {
+    screenStatus: "end",
   },
 };
