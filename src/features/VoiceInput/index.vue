@@ -5,6 +5,7 @@
     @deleteVoiceInput="deleteVoiceInput"
     @stopVoiceInput="stopVoiceInput"
     @sendVoiceInput="sendVoiceInput"
+    @restartVoiceInput="restartVoiceInput"
   />
 </template>
 
@@ -18,19 +19,25 @@ export default {
 
   data() {
     return {
-      screenStatus: "start", // "start" | "during" | "end"
+      screenStatus: "start", // "start" | "during" | "stop",
+      context: null,
     };
   },
 
   methods: {
-    startVoiceInput() {
+    async startVoiceInput() {
       this.screenStatus = "during";
+
+      // this.context = new window.AudioContext();
     },
     deleteVoiceInput() {
       this.screenStatus = "start";
     },
     stopVoiceInput() {
-      this.screenStatus = "end";
+      this.screenStatus = "stop";
+    },
+    restartVoiceInput() {
+      this.screenStatus = "during";
     },
     sendVoiceInput() {
       this.screenStatus = "start";

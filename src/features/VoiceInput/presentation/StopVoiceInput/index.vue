@@ -3,7 +3,7 @@
     <span class="detail1">~~~~~~~</span>
     <div class="buttons">
       <DeleteButton @deleteVoiceInput="$emit('deleteVoiceInput')" />
-      <button class="play-button" @click="$emit('playVoiceInput')">
+      <button class="play-button" @click="$emit('restartVoiceInput')">
         <Icon icon="mdi:play" class="icon" />
       </button>
       <SendButton @sendVoiceInput="$emit('sendVoiceInput')" />
@@ -17,7 +17,7 @@ import DeleteButton from "../buttons/DeleteButton/index.vue";
 import SendButton from "../buttons/SendButton/index.vue";
 
 export default {
-  name: "PreviewVoiceInput",
+  name: "StopVoiceInput",
   props: {},
   components: {
     Icon,
