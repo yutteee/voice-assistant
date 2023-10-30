@@ -21,6 +21,7 @@ export default {
     return {
       screenStatus: "start", // "start" | "during" | "stop",
       connection: null,
+      timeChunkCut: 100,
     };
   },
 
@@ -43,6 +44,13 @@ export default {
     };
   },
 
+  mounted() {
+    this.connection.onmessage = function (event) {
+      const data = JSON.parse(event.data);
+      console.log(data);
+    };
+  },
+
   methods: {
     async startVoiceInput() {
       this.screenStatus = "during";
@@ -52,20 +60,21 @@ export default {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
 
       const mediaRecorder = new MediaRecorder(stream);
+      mediaRecorder.ondataavailable = (e) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+          const base64Audio = reader.result.split(",")[1];
+          const data = JSON.stringify({
+            action: "AUDIO",
+            audio: base64Audio,
+          });
+          this.connection.send(data);
+        };
+        reader.readAsDataURL(e.data);
+      };
+
       const generateChunkTime = 1000;
       mediaRecorder.start(generateChunkTime);
-
-      mediaRecorder.addEventListener("dataavailable", (e) => {
-        console.log(e.data);
-        // base64 encode
-        const reader = new FileReader();
-        reader.readAsDataURL(e.data);
-        reader.onloadend = () => {
-          const base64data = reader.result;
-          const param = JSON.stringify({ action: "AUDIO", audio: base64data });
-          this.connection.send(param);
-        };
-      });
     },
     deleteVoiceInput() {
       this.screenStatus = "start";
