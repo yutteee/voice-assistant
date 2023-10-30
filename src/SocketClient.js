@@ -5,7 +5,7 @@ class SocketClient {
   constructor() {}
 
   setupSocketConnection() {
-    this.socket = io(process.env.VUE_APP_SOCKET_ENDPOINT);
+    this.socket = io("wss://voice-ws.developer.vi-jp-te.info/voice");
     console.log(`Connecting socket...`);
   }
 

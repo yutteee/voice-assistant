@@ -27,6 +27,6 @@ export const DuringVoiceInput = {
 
 export const AfterVoiceInput = {
   args: {
-    screenStatus: "end",
+    screenStatus: "stop",
   },
 };
